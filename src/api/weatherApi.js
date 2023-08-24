@@ -1,6 +1,6 @@
 // src/api/weatherApi.js
 
-const API_KEY = 'xxx';
+const API_KEY = '107c590b114e6d3a97567195f3f1ab79';
 
 const fetchWeatherData = async (city) => {
   try {
