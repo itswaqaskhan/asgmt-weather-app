@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import TemperatureToggle from './TemperatureToggle'; // Import the TemperatureToggle component
+import TemperatureToggle from './TemperatureToggle';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
-const SearchBar = ({ onSearch, onUnitChange }) => { // Add onUnitChange as a prop
+const SearchBar = ({ onSearch, onUnitChange }) => { 
   const [city, setCity] = useState('');
 
   const handleCityChange = (event) => {
@@ -14,9 +16,10 @@ const SearchBar = ({ onSearch, onUnitChange }) => { // Add onUnitChange as a pro
 
   return (
     <div className="search-bar">
-      <input type="text" value={city} onChange={handleCityChange} placeholder="Enter city name" />
-      <button onClick={handleSearch}>Search</button>
-      <TemperatureToggle onUnitChange={onUnitChange} /> {/* Pass onUnitChange as a prop */}
+      <h2>Weather App</h2>
+      <TextField id="outlined-basic" size="small" label="City" variant="outlined" onChange={handleCityChange} placeholder="Enter city name"/>
+      <Button variant="contained" onClick={handleSearch} style={{marginRight:20}}>Search</Button>
+      <TemperatureToggle onUnitChange={onUnitChange} />
     </div>
   );
 };

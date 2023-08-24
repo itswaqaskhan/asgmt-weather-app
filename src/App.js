@@ -3,6 +3,7 @@ import SearchBar from './components/SearchBar';
 import WeatherDisplay from './components/WeatherDisplay/WeatherDisplay';
 import ForecastChart from './components/ForecastChart';
 import fetchWeatherData from './api/weatherApi';
+import Container from '@mui/material/Container';
 
 const App = () => {
   const [weatherData, setWeatherData] = useState({});
@@ -37,12 +38,16 @@ const App = () => {
 
   return (
     <div>
-      <SearchBar onSearch={handleSearch} onUnitChange={handleUnitChange} />
-      <WeatherDisplay weatherData={weatherData} temperatureUnit={temperatureUnit} />
-      {temperatureChartData.labels.length > 0 && ( 
-        <ForecastChart temperatureData={temperatureChartData} temperatureUnit={temperatureUnit} />
-      )}
+      <Container maxWidth="lg" style={{marginTop:20}}>
+        <SearchBar onSearch={handleSearch} onUnitChange={handleUnitChange}/>
+        <WeatherDisplay weatherData={weatherData} temperatureUnit={temperatureUnit} style={{marginTop:20}}/>
+        {temperatureChartData.labels.length > 0 && (
+          <ForecastChart temperatureData={temperatureChartData} temperatureUnit={temperatureUnit} />
+        )}
+
+      </Container>
     </div>
+
   );
 };
 

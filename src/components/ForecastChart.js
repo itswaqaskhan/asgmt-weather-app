@@ -8,17 +8,6 @@ const ForecastChart = ({ temperatureData, temperatureUnit }) => {
       ? temperatureData.temperatures
       : temperatureData.temperatures.map((celsius) => ((celsius * 9) / 5 + 32).toFixed(2));
 
-//   const roundedTimeLabels = temperatureData.labels.map((label) => {
-//     const date = new Date(label);
-//     return `${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}`;
-//   });
-
-// const formattedTimeLabels = temperatureData.labels.map((label) => {
-//     const date = new Date(label);
-//     const roundedDate = new Date(date.getTime() + Math.round(date.getMinutes() / 60) * 60 * 60 * 1000);
-//     return roundedDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric' });
-//   });
-
 const formattedTimeLabels = temperatureData.labels.map((label) => {
     const date = new Date(label);
     const roundedDate = new Date(date.getTime() + Math.round(date.getMinutes() / 60) * 60 * 60 * 1000);
@@ -30,7 +19,7 @@ const formattedTimeLabels = temperatureData.labels.map((label) => {
     
     options: {
       xaxis: {
-        categories: formattedTimeLabels, // Use rounded time labels
+        categories: formattedTimeLabels, 
         title: {
           text: 'Time',
         },

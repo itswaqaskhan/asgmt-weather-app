@@ -41,7 +41,6 @@ const fetchWeatherData = async (city) => {
     return { ...weatherData, forecast: forecastChartData };
   } catch (error) {
     console.error('Error fetching weather data:', error);
-    // You can handle errors here, e.g., show an error message to the user
     return null;
   }
 };
